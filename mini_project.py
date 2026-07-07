@@ -1,4 +1,4 @@
-#Name:
+#Name: Saanvi, Maddy, Anika, Sasha, Alessia
 #Mini-Project - Build Your Own Game!
 '''
 This is YOUR game. You are the designer. There are only two requirements:
@@ -58,4 +58,32 @@ while loops, for loops, lists, random, and turtle graphics.
 Build your game below. Delete this line and start coding!
 '''
 
-print("My game is not built yet!")
+
+from colorama import Fore, Style, init
+init(autoreset=True)
+import random
+
+word = random.randint(1, 3103)
+guess = input("What is your {attempt} guess? Only 5 letters: ")
+attempt = 0
+point = 0
+check = 0
+
+
+if word = guess or attempt => 6
+if len(guess) > 5:
+	guess = input("Please only input 5 letters: ")
+
+extend(guess)
+
+for char in [guess]:
+	if char = word[check]:
+		print(Fore.green + char)
+	elif if char in word:
+		print(Fore.yellow + char)
+	else = print(Fore.black + char)
+	check = check+1
+
+if input == word:
+	print("You have 1 point!")
+	
