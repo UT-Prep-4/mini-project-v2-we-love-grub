@@ -61,7 +61,7 @@ import random
 from colorama import Fore, init
 init(autoreset=True)
 with open("5-letter-words.txt", "r") as file:
-  word_bank = file.readlines()
+  word_bank = [line.strip() for line in file]
 word = word_bank[random.randint(1, 3103)]
 attempt = 1
 point = 0
@@ -80,7 +80,7 @@ while attempt < 7:
   if guess != word:
     print(guess==word)
     for char in guess:
-      if char == guess[check]:
+      if char == word[check]:
         print(Fore.GREEN + char)
         check+=1
       elif char in word:
