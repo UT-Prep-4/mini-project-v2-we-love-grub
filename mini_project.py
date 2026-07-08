@@ -57,33 +57,36 @@ while loops, for loops, lists, random, and turtle graphics.
 ==============================================================================
 Build your game below. Delete this line and start coding!
 '''
-
-
-from colorama import Fore, Style, init
-init(autoreset=True)
 import random
-
-word = random.randint(1, 3103)
-guess = input("What is your {attempt} guess? Only 5 letters: ")
-attempt = 0
+from colorama import Fore, init
+init(autoreset=True)
+with open("5-letter-words.txt", "r") as file:
+  word_bank = file.readlines()
+word = word_bank[random.randint(1, 3103)]
+attempt = 1
 point = 0
-check = 0
 
-
-if word = guess or attempt => 6
-if len(guess) > 5:
-	guess = input("Please only input 5 letters: ")
-
-extend(guess)
-
-for char in [guess]:
-	if char = word[check]:
-		print(Fore.green + char)
-	elif if char in word:
-		print(Fore.yellow + char)
-	else = print(Fore.black + char)
-	check = check+1
-
-if input == word:
-	print("You have 1 point!")
-	
+while attempt < 7:
+  print(word)
+  check = 0
+  guess = input(f'What is your {attempt} guess? Only 5 characters:')
+  print(guess)
+  if len(guess) > 5:
+    guess = input('Please only input 5 characters:')
+  if guess == word or attempt == 6:
+    point = 6-attempt
+    print (f'The game is over, you scored, {point}, the correct word was: {word}.')
+    break
+  if guess != word:
+    print(guess==word)
+    for char in guess:
+      if char == guess[check]:
+        print(Fore.GREEN + char)
+        check+=1
+      elif char in word:
+        print(Fore.YELLOW + char)
+        check+=1
+      else:
+        print(char)
+        check+=1    
+  attempt+=1
