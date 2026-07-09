@@ -1,4 +1,4 @@
-#Name:
+#Name: Saanvi, Maddy, Anika, Sasha, Alessia
 #Mini-Project - Build Your Own Game!
 '''
 This is YOUR game. You are the designer. There are only two requirements:
@@ -57,5 +57,34 @@ while loops, for loops, lists, random, and turtle graphics.
 ==============================================================================
 Build your game below. Delete this line and start coding!
 '''
+import random
+from colorama import Fore, init
+init(autoreset=True)
+with open("5-letter-words.txt", "r") as file:
+  word_bank = [line.strip() for line in file]
+word = word_bank[random.randint(1, 3103)]
+attempt = 1
+point = 0
 
-print("My game is not built yet!")
+while attempt < 7:
+  
+  check = 0
+  guess = input(f'What is your {attempt} guess? Only 5 characters:')
+  if len(guess) > 5:
+    guess = input('Please only input 5 characters:')
+  if guess == word or attempt == 6:
+    point = 6-attempt
+    print (f'The game is over, you scored, {point}, the correct word was: {word}.')
+    break
+  if guess != word:
+    for char in guess:
+      if char == word[check]:
+        print(Fore.GREEN + char)
+        check+=1
+      elif char in word:
+        print(Fore.YELLOW + char)
+        check+=1
+      else:
+        print(char)
+        check+=1    
+  attempt+=1
