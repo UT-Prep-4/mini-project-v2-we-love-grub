@@ -67,10 +67,9 @@ attempt = 1
 point = 0
 
 while attempt < 7:
-  print(word)
+  
   check = 0
   guess = input(f'What is your {attempt} guess? Only 5 characters:')
-  print(guess)
   if len(guess) > 5:
     guess = input('Please only input 5 characters:')
   if guess == word or attempt == 6:
@@ -78,7 +77,6 @@ while attempt < 7:
     print (f'The game is over, you scored, {point}, the correct word was: {word}.')
     break
   if guess != word:
-    print(guess==word)
     for char in guess:
       if char == word[check]:
         print(Fore.GREEN + char)
